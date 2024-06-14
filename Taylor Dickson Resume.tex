@@ -20,8 +20,11 @@
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, letterpaper]{awesome-cv}
 
+% Define the version here
+\newcommand{\oversion}{data-engineer} % Change to "data-engineer", "dev-ops"
+
 % Configure page margins with geometry
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\geometry{left=1.4cm, top=.6cm, right=1.4cm, bottom=0.6cm, footskip=.5cm}
 
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
@@ -52,7 +55,19 @@
 % Available options: circle|rectangle,edge/noedge,left/right
 % \photo{./examples/profile.png}
 \name{Taylor}{Dickson}
-\position{Senior Research Analyst{\enskip\cdotp\enskip}IT, Data \& Systems Professional}
+
+\ifdefstring{\oversion}{data-engineer}{%
+  \position{Data Engineer{\enskip\cdotp\enskip} IT \& Systems Professional}
+}{%
+\ifdefstring{\oversion}{dev-ops}{%
+  % Content for the dev-ops version goes here
+}{%
+\ifdefstring{\oversion}{default}{%
+  \position{Senior Research Analyst{\enskip\cdotp\enskip}IT, Data \& Systems Professional}
+}{%
+%  \position{Senior Research Analyst{\enskip\cdotp\enskip}IT, Data \& Systems Professional}%
+}}}
+
 \address{Toronto, Canada}
 
 \mobile{1-647-518-2894}
@@ -86,20 +101,35 @@
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
-\makecvfooter
-  {}
-  {Taylor Dickson~~~·~~~Resume}
-  {\thepage}
+%\makecvfooter
+%  {}
+%  {Taylor Dickson~~~·~~~Resume}
+% {\thepage}
 
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-% \input{cv/education.tex}
-\input{cv/summary.tex}
-\input{cv/skills.tex}
-\input{cv/experience.tex}
+\ifdefstring{\oversion}{data-engineer}{%
+	\input{cv/summary.tex}
+	\input{cv/skills.tex}
+	\input{cv/experience-data-engineer.tex}
+%	 \input{cv/education.tex}
+}{%
+\ifdefstring{\oversion}{dev-ops}{%
+  % Content for the dev-ops version goes here
+}{%
+\ifdefstring{\oversion}{default}{%
+	\input{cv/summary.tex}
+	\input{cv/skills.tex}
+	\input{cv/experience.tex}
+%[ 	\input{cv/education.tex}
+}{%
+
+}}}
+%
+
 % \input{cv/extracurricular.tex}
 % \input{cv/honors.tex}
 % \input{cv/certificates.tex}
