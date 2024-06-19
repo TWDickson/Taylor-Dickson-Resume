@@ -9,44 +9,6 @@
 %-------------------------------------------------------------------------------
 \begin{cventries}
 
-% \cventry
-%   {Owner/Operator}
-%   {TWDickson Consulting}
-%   {Toronto, Canada}
-%   {October 20, 2021 - Present}
-%   {
-%     \begin{cvitems}
-%       \item Providing web development, automation, and data engineering expertise.
-%       \item Designing and coding a static site generator for \textbf{Topology Health} (https://topology.health).
-%       \item Working closely with clients to produce a uniform and harmonized information architecture.
-%       \item Creating documentation for knowledge transfer, facilitating easy client site maintenance.
-%       \item Implementing robust content management systems for seamless website updates.
-%       \item Successfully managing client relationships through various remote communication platforms.
-%     \end{cvitems}
-%   }
-
-\documentclass{article}
-\usepackage{etoolbox}
-
-% Define the version here
-\newcommand{\oversion}{dev-ops} % Change to "data-engineer", "dev-ops", or "default"
-
-\begin{document}
-
-% Title based on \oversion
-\ifstrequal{\oversion}{data-engineer}{%
-  \title{Resume - Data Engineer Version}%
-}{%
-\ifstrequal{\oversion}{dev-ops}{%
-  \title{Resume - Dev Ops Version}%
-}{%
-  \title{Resume - Default Version}%
-}}
-
-\maketitle
-
-\section{Experience}
-
 \cventry
   {Senior Research Analyst/Team Lead}
   {Ontario Public Service - Treasury Board Secretariat}
