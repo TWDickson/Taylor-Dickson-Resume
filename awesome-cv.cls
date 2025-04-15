@@ -90,6 +90,7 @@
 }
 % Solves issues Warning: File `cv.out' has changed
 \RequirePackage{bookmark}
+\RequirePackage{expl3}
 
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
