@@ -22,7 +22,8 @@
       }
     ],
     "conventionalCommits.scopes": [
-      "Content"
+      "Content",
+      "Output"
     ]
   }
 }
