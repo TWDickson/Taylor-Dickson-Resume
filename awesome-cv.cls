@@ -782,3 +782,35 @@
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
 }
+
+% Define Import Loop for Sections
+\ExplSyntaxOn%
+\cs_new_protected:Nn \resume_load_sections:n {
+  \clist_map_inline:nn {#1} {
+    \IfFileExists{cv/\oversion-##1.tex}{
+      \input{cv/\oversion-##1.tex}
+    }{
+      \input{cv/default-##1.tex}
+    }
+  }
+}
+\cs_generate_variant:Nn \resume_load_sections:n { V }
+\NewDocumentCommand{\loadSections}{m}{
+  \resume_load_sections:n {#1}
+}
+\ExplSyntaxOff%
+
+\RequirePackage{shellesc} % For improved shell escaping
+\RequirePackage{ifthen}
+
+% Define a macro for safer file operations
+\newcommand{\safefilecopy}[2]{%
+  \newif\ifwindows%
+  \IfFileExists{C:/Windows/System32/cmd.exe}{\windowstrue}{\windowsfalse}
+
+  \ifwindows
+    \immediate\write18{powershell -Command "Copy-Item -Path '\jobname.pdf' -Destination 'Upload Copies\\\oversion\\Taylor Dickson Resume.pdf' -Force"}
+  \else
+    \immediate\write18{mkdir -p "Upload Copies/\oversion" && cp "\jobname.pdf" "Upload Copies/\oversion/Taylor Dickson Resume.pdf"}
+  \fi
+}
