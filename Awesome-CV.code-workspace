@@ -1,12 +1,25 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"[latex]": {
-    		"editor.wordWrap": "on"
-		}
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[latex]": {
+      "editor.wordWrap": "on"
+    }, 
+    "latex-workshop.latex.tools": [
+      {
+        "name": "xelatex_shell_escape",
+        "command": "xelatex",
+        "args": ["--shell-escape", "-synctex=1", "-interaction=nonstopmode", "%DOC%"]
+      }
+    ],
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "Xelatex_Shell_Escape",
+        "tools": ["xelatex_shell_escape"]
+      }
+    ]
+  }
 }
