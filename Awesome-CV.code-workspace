@@ -20,6 +20,9 @@
         "name": "Xelatex_Shell_Escape",
         "tools": ["xelatex_shell_escape"]
       }
+    ],
+    "conventionalCommits.scopes": [
+      "Content"
     ]
   }
 }
