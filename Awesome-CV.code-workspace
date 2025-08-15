@@ -24,6 +24,7 @@
     "conventionalCommits.scopes": [
       "Content",
       "Output"
-    ]
+    ],
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false
   }
 }
