@@ -787,10 +787,10 @@
 \ExplSyntaxOn%
 \cs_new_protected:Nn \resume_load_sections:n {
   \clist_map_inline:nn {#1} {
-    \IfFileExists{cv/\oversion-##1.tex}{
-      \input{cv/\oversion-##1.tex}
+    \IfFileExists{cv/\oversion/##1.tex}{
+      \input{cv/\oversion/##1.tex}
     }{
-      \input{cv/default-##1.tex}
+      \input{cv/default/##1.tex}
     }
   }
 }
@@ -801,16 +801,15 @@
 \ExplSyntaxOff%
 
 \RequirePackage{shellesc} % For improved shell escaping
-\RequirePackage{ifthen}
+% \usepackage{ifplatform}
 
 % Define a macro for safer file operations
 \newcommand{\safefilecopy}[2]{%
   \newif\ifwindows%
   \IfFileExists{C:/Windows/System32/cmd.exe}{\windowstrue}{\windowsfalse}
-
   \ifwindows
-    \immediate\write18{powershell -Command "Copy-Item -Path '\jobname.pdf' -Destination 'Upload Copies\\\oversion\\Taylor Dickson Resume.pdf' -Force"}
+    \ShellEscape{powershell -Command "Copy-Item -Path '\jobname.pdf' -Destination 'Upload Copies\\\oversion\\Taylor Dickson Resume.pdf' -Force"}
   \else
-    \immediate\write18{mkdir -p "Upload Copies/\oversion" && cp "\jobname.pdf" "Upload Copies/\oversion/Taylor Dickson Resume.pdf"}
+    \ShellEscape{mkdir -p "#2" && FILE=$(echo #1 | sed 's/"//g').pdf && cp "$FILE" "#2/$FILE"}
   \fi
 }

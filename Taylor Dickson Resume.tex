@@ -35,7 +35,7 @@
 \input{personal\_details.tex} % Personal Information
 
 \AtEndDocument{
-  \safefilecopy{\jobname.pdf}{Upload Copies/\oversion/Taylor Dickson Resume.pdf}
+  \safefilecopy{\jobname}{Upload Copies/\oversion/}
 }
 
 \begin{document}
@@ -43,7 +43,6 @@
 % Print the header with above personal information
 % Give optional argument to change alignment(C: center, L: left, R: right)
 \makecvheader%
-
 % Call the command with the list of sections
 \loadSections{summary, skills, experience}%
 
