@@ -25,6 +25,8 @@
       "Content",
       "Output"
     ],
-    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+    "latex-workshop.latex.build.forceRecipeUsage": false,
+    "latex-workshop.latex.recipe.default": "lastUsed"
   }
 }
