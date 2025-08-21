@@ -259,8 +259,8 @@
 \newcommand*{\position}[1]{\def\@position{#1}}
 
 % Defines writer's mobile (optional)
-% Usage: \mobile{<mobile number>}
-\newcommand*{\mobile}[1]{\def\@mobile{#1}}
+% Usage: \mobile{<mobile number>}{<label>}
+\newcommand*{\mobile}[2]{\def\@mobile{#1}\def\@mobilelabel{#2}}
 
 % Defines writer's email (optional)
 % Usage: \email{<email address>}
@@ -468,7 +468,7 @@
       \ifthenelse{\isundefined{\@mobile}}%
         {}%
         {%
-          \href{tel:\@mobile}{\faMobile\acvHeaderIconSep\@mobile}%
+          \href{tel:\@mobile}{\faMobile\acvHeaderIconSep\@mobilelabel}%
           \setbool{isstart}{false}%
         }%
       \ifthenelse{\isundefined{\@email}}%
