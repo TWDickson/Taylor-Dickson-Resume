@@ -5,9 +5,11 @@
 
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, letterpaper]{awesome-cv}
-% Define the version here
-\newcommand{\oversion}{tech-delivery-mgr} % Change to "data-engineer", "dev-ops", "full-stack"
 
+%--------------------------------------------------------------
+% Define the version here
+\newcommand{\OutputVersion}{senior_data_engineer_grand_river_hospital} % Change to "data-engineer", "dev-ops", "full-stack"
+%--------------------------------------------------------------
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.6cm, right=1.4cm, bottom=0.6cm, footskip=.5cm}
 
@@ -35,7 +37,7 @@
 \input{personal\_details.tex} % Personal Information
 
 \AtEndDocument{
-  \safefilecopy{\jobname}{Upload Copies/\oversion/}
+  \safefilecopy{\jobname}{Upload Copies/\OutputVersion/}
 }
 
 \begin{document}
