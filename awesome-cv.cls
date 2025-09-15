@@ -805,8 +805,8 @@
 \ExplSyntaxOn%
 \cs_new_protected:Nn \resume_load_sections:n {
   \clist_map_inline:nn {#1} {
-    \IfFileExists{cv/\oversion/##1.tex}{
-      \input{cv/\oversion/##1.tex}
+    \IfFileExists{cv/\OutputVersion/##1.tex}{
+      \input{cv/\OutputVersion/##1.tex}
     }{
       \input{cv/default/##1.tex}
     }
@@ -818,6 +818,36 @@
 }
 \ExplSyntaxOff%
 
+% Storage for cover letter content
+\newcommand{\storedcoverletterinfo}{}
+\newcommand{\storedcoverlettercontent}{}
+
+% Custom commands to store content
+\newcommand{\storerecipient}[2]{\recipient{#1}{#2}}
+\newcommand{\storeletterdate}[1]{\letterdate{#1}}
+\newcommand{\storelettertitle}[1]{\lettertitle{#1}}
+\newcommand{\storeletteropening}[1]{\letteropening{#1}}
+\newcommand{\storeletterclosing}[1]{\letterclosing{#1}}
+\newcommand{\storeletterenclosure}[2][]{\letterenclosure[#1]{#2}}
+
+% Custom environment to store cvletter content
+\newenvironment{storedcvletter}
+  {\global\let\storedcoverlettercontent\empty
+   \long\gdef\storedcoverlettercontent}
+  {}
+
+% Command to execute stored content
+\newcommand{\executestoredcontent}{\storedcoverlettercontent}
+
+% Main load command
+\newcommand{\loadCoverLetter}{%
+  \IfFileExists{cv/\OutputVersion/cover_letter.tex}{
+    \input{cv/\OutputVersion/cover_letter.tex}
+  }{
+    \input{cv/default/cover_letter.tex}
+  }
+}
+
 \RequirePackage{shellesc} % For improved shell escaping
 % \usepackage{ifplatform}
 
@@ -826,7 +856,7 @@
   \newif\ifwindows%
   \IfFileExists{C:/Windows/System32/cmd.exe}{\windowstrue}{\windowsfalse}
   \ifwindows
-    \ShellEscape{powershell -Command "Copy-Item -Path '\jobname.pdf' -Destination 'Upload Copies\\\oversion\\Taylor Dickson Resume.pdf' -Force"}
+    \ShellEscape{powershell -Command "Copy-Item -Path '\jobname.pdf' -Destination 'Upload Copies\\\OutputVersion\\Taylor Dickson Resume.pdf' -Force"}
   \else
     \ShellEscape{mkdir -p "#2" && FILE=$(echo #1 | sed 's/"//g').pdf && cp "$FILE" "#2/$FILE"}
   \fi
