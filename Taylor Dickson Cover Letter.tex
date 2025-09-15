@@ -49,71 +49,20 @@
 %	PERSONAL INFORMATION
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
-\newcommand{\oversion}{tech-delivery-mgr} % Change to "data-engineer", "dev-ops", "full-stack"
-\input{personal\_details.tex} % Personal Information
-% \position{Data Engineer{\enskip\cdotp\enskip} Cloud Infrastructure \& Analytics}
-% \quote{``Be the change that you want to see in the world."}
+\newcommand{\OutputVersion}{senior_data_engineer_grand_river_hospital} % Change to "data-engineer", "dev-ops", "full-stack"
 
-
-%-------------------------------------------------------------------------------
 %	LETTER INFORMATION
-%	All of the below lines must be filled out
-%-------------------------------------------------------------------------------
-% The company being applied to
-\recipient%
-  {Servus Credit Union}
-  {Data Technology and Infrastructure}
-% The date on the letter, default is the date of compilation
-\letterdate{\today}
-% The title of the letter
-\lettertitle{Job Application for Technology Delivery Manager}
-% How the letter is opened
-\letteropening{Dear Sudarshan Shrinivasan,}
-% How the letter is closed
-\letterclosing{Sincerely,}
-% Any enclosures with the letter
-\letterenclosure[Attached]{Resume}
+\input{personal\_details.tex} % Personal
+\loadCoverLetter%
 
-
-%-------------------------------------------------------------------------------
 \begin{document}
-
-% Print the header with above personal information
-% Give optional argument to change alignment(C: center, L: left, R: right)
 \makecvheader[R]
-
-% Print the footer with 3 arguments(<left>, <center>, <right>)
-% Leave any of these blank if they are not needed
-\makecvfooter%
-  {\today}
-  {Taylor Dickson~~~·~~~Cover Letter}
-  {}
-
-% Print the title with above letter information
+\makecvfooter{\today}{\displayname~~~·~~~Cover Letter}{}
 \makelettertitle%
 
-%-------------------------------------------------------------------------------
-%	LETTER CONTENT
-%-------------------------------------------------------------------------------
 \begin{cvletter}
-I am excited to apply for the Technology Delivery Manager position at Servus Credit Union. As a Senior Technology Professional with 8+ years driving enterprise technology initiatives and cross-functional delivery coordination across Ontario government ministries, I am eager to bring my analytical expertise and delivery management experience to support Servus's mission of putting people before profits.
-
-In my current role as Data Engineer at the Ministry of the Attorney General, I am driving a technology modernization initiative for Ontario's court system during a critical \$160M+ migration project. By coordinating delivery across IT operations, analytics teams, and legacy mainframe specialists, I have delivered \$300K+ in annual cost savings while ensuring compliance with high security requirements. This experience managing sensitive data and complex stakeholder relationships directly aligns with the financial sector compliance and risk management expertise Servus requires.
-
-During my tenure as Senior Research Analyst/Team Lead at Treasury Board Secretariat, I led cross-ministry technology evaluation for multi-million dollar government initiatives through the Strategic Planning Process, providing strategic recommendations that influenced funding decisions across multiple ministries. Managing delivery pipelines for automation platforms affecting 60,000+ employees taught me the critical importance of stakeholder coordination, timeline management, and operational readiness—core competencies essential for Servus's hybrid cloud and infrastructure modernization initiatives.
-
-My experience coordinating complex technology projects across government demonstrates the cross-functional leadership and vendor management skills critical for this role. Leading a team of 5 through technology implementations while managing procurement processes and establishing quality assurance protocols has prepared me to scale delivery practices and foster the high-performance culture Servus seeks.
-
-What particularly attracts me to Servus is your commitment to reinvesting in members, employees, and communities. Having spent my career in public service delivering technology solutions that benefit Ontarians, I am excited to apply my skills in an organization that shares similar values of community impact and member-focused service delivery.
-
-I am ready to transition my analytical background and delivery coordination experience into formal technology delivery management, bringing strategic foresight, operational excellence, and a deep understanding of balancing speed, quality, and risk management that this role demands.
-
-Thank you for considering my application. I would welcome the opportunity to discuss how my experience driving technology modernization and managing complex stakeholder relationships can contribute to Servus's continued success.
+\executestoredcontent%
 \end{cvletter}
 
-
-%-------------------------------------------------------------------------------
-% Print the signature and enclosures with above letter information
 \makeletterclosing%
-
 \end{document}
