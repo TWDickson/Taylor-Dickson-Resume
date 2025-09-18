@@ -27,6 +27,13 @@
     ],
     "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
     "latex-workshop.latex.build.forceRecipeUsage": false,
-    "latex-workshop.latex.recipe.default": "lastUsed"
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "vscode-mcp-server.enabledTools": {
+      "file": true,
+      "edit": true,
+      "shell": true,
+      "diagnostics": true,
+      "symbol": true
+    }
   }
 }
