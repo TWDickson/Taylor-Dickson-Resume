@@ -34,6 +34,9 @@
       "shell": true,
       "diagnostics": true,
       "symbol": true
+    },
+    "workbench.editorAssociations": {
+      "*.pdf": "latex-workshop-pdf-hook"
     }
   }
 }
